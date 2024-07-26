@@ -157,7 +157,7 @@ Route::get('/tags', function () {
 Route::get('/projects', function () {
 
     //TODO setup into factories
-    // $project = \App\Models\Project::create([
+    // $project1 = \App\Models\Project::create([
     //     'title' => 'Project A',
     // ]);
 
@@ -169,78 +169,32 @@ Route::get('/projects', function () {
     //     'name' => 'User 1',
     //     'email' => 'user1@example.com',
     //     'password' => Hash::make('password'),
-    //     'project_id' => $project->id
     // ]);
 
     // $user2 = \App\Models\User::create([
     //     'name' => 'User 2',
     //     'email' => 'user2@example.com',
     //     'password' => Hash::make('password'),
-    //     'project_id' => $project2->id
     // ]);
 
     // $user3 = \App\Models\User::create([
     //     'name' => 'User 3',
     //     'email' => 'user3@example.com',
     //     'password' => Hash::make('password'),
-    //     'project_id' => $project->id
     // ]);
 
-    // $user4 = \App\Models\User::create([
-    //     'name' => 'User 4',
-    //     'email' => 'user4@example.com',
-    //     'password' => Hash::make('password'),
-    //     'project_id' => $project2->id
-    // ]);
+    // $project1->users()->attach($user1);
+    // $project1->users()->attach($user2);
+    // $project1->users()->attach($user3);
 
-    // $user5 = \App\Models\User::create([
-    //     'name' => 'User 5',
-    //     'email' => 'user5@example.com',
-    //     'password' => Hash::make('password'),
-    //     'project_id' => $project2->id
-    // ]);
-
-    // $task1 = \App\Models\Task::create([
-    //     'title' => 'Task 1 for project 1 by user 1',
-    //     'user_id' => $user1->id
-    // ]);
-
-    // $task2 = \App\Models\Task::create([
-    //     'title' => 'Task 2 for project 1 by user 1',
-    //     'user_id' => $user1->id
-    // ]);
-
-    // $task3 = \App\Models\Task::create([
-    //     'title' => 'Task 3 for project 1 by user 2',
-    //     'user_id' => $user2->id
-    // ]);
-
-    // $task4 = \App\Models\Task::create([
-    //     'title' => 'Task 4 for project 1 by user 3',
-    //     'user_id' => $user1->id
-    // ]);
-
-    // $task5 = \App\Models\Task::create([
-    //     'title' => 'Task 5 for project 2 by user 3',
-    //     'user_id' => $user1->id
-    // ]);
-
-    // $task6 = \App\Models\Task::create([
-    //     'title' => 'Task 6 for project 2 by user 4',
-    //     'user_id' => $user2->id
-    // ]);
+    // $project2->users()->attach($user1);
+    // $project2->users()->attach($user3);
 
 
-    $project = \App\Models\Project::find(1);
-    // $projects = \App\Models\Project::all();
+    // $project = \App\Models\Project::find(1);
+    $user = \App\Models\User::find(2);
 
-    // dd($project);
-
-    // return $projects[0]->users;
-    return $project->users;
-
-    // return $project->users[0]->tasks; //from users
-    // return $project->task; //hasOneThrough
-    // return $project->tasks; //hasManyThrough
+    // return $project->users;
+    return $user->projects;
 
 });

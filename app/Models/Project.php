@@ -13,12 +13,19 @@ class Project extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        // return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function tasks(){
         // return $this->hasManyThrough(Task::class, User::class);
-        return $this->hasManyThrough(Task::class, User::class, 'project_id', 'user_id');
+        return $this->hasManyThrough(
+            Task::class,
+            User::class,
+            'project_id', //foreign key in users table
+            'user_id', //foreign key in task table
+            'id' //local key in projects table
+        );
     }
 
     public function task(){
