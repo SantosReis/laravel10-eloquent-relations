@@ -38,6 +38,10 @@ Route::get('/user', function () {
     // $users = \App\Models\User::all();
     $users = \App\Models\User::with('addresses')->get();
 
+    // $users[0]->addresses()->create([
+    //     'country' => 'Nepal'
+    // ]);
+
     // dd(compact('users'));
 
     return view('users.index', compact('users'));
@@ -60,3 +64,28 @@ Route::get('/address', function () {
     return view('address.index', compact('addresses'));
 
 });
+
+
+Route::get('/posts', function () {
+
+    // $user = \App\Models\User::factory()->create();    
+
+    // \App\Models\Post::create([
+    //     'user_id' => 1,
+    //     'title' => 'Post title 1',
+    // ]);
+
+    // \App\Models\Post::create([
+    //     'user_id' => 2,
+    //     'title' => 'Post title 3',
+    // ]);
+
+    // $addresses = \App\Models\Post::all();
+    $posts = \App\Models\Post::with('user')->get();
+
+    // dd(compact('posts'));
+
+    return view('posts.index', compact('posts'));
+
+});
+
