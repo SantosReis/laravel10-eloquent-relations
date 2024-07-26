@@ -16,3 +16,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user', function () {
+    // \App\Models\User::factory(10)->create();
+
+    // \App\Models\Address::create([
+    //     'user_id' => 1,
+    //     'country' => 'India'
+    // ]);
+
+    // \App\Models\Address::create([
+    //     'user_id' => 2,
+    //     'country' => 'USA'
+    // ]);
+
+    // \App\Models\Address::create([
+    //     'user_id' => 3,
+    //     'country' => 'UK'
+    // ]);
+
+    $users = \App\Models\User::all();
+
+    // dd(compact('users'));
+
+    return view('users.index', compact('users'));
+
+});
