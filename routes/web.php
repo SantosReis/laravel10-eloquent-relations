@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -197,4 +198,33 @@ Route::get('/projects', function () {
     // return $project->users;
     return $user->projects;
 
+});
+
+Route::get('/team', function () {
+
+    // \App\Models\Task::create([
+    //     'title' => 'Task A',
+    //     'user_id' => 1
+    // ]);
+
+    // \App\Models\Task::create([
+    //     'title' => 'Task B',
+    //     'user_id' => 1
+    // ]);
+
+    // \App\Models\Task::create([
+    //     'title' => 'Task C',
+    //     'user_id' => 2
+    // ]);
+
+    // \App\Models\Task::create([
+    //     'title' => 'Task D',
+    //     'user_id' => 3
+    // ]);
+
+    // $project = Project::find(1);
+    $project = Project::find(2);
+
+    return $project->tasks;
+    
 });
