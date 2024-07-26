@@ -130,11 +130,15 @@ Route::get('/tags', function () {
     //setup into related tables
     // $post->tags()->attach($tag);
     // $post->tags()->attach([2, 3, 4]);
-    // $post->tags()->detach(2);
+    // $post->tags()->attach(1);
+    // $post->tags()->detach(1);
     // $post->tags()->sync([1, 3]);
+    $post->tags()->sync([1]);
 
 
     // dd($post->toArray());
+    // dd($post->tags->first());
+    // dd($post->tags->first()->pivot->created_at);
 
     $tags = \App\Models\Tag::with('posts')->get();
     return view('tags.index', compact('tags'));
