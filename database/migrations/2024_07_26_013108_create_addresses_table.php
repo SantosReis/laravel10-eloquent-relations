@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->bigInteger('user_id');
-            $table->bigInteger('uid');
+            $table->bigInteger('user_id');
+            // $table->bigInteger('uid');
             $table->string('country');
             $table->timestamps();
         });

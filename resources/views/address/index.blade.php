@@ -3,7 +3,7 @@
     <div class="col-mb-8">
       @foreach ($addresses as $address)
         <h2>{{ $address->country }}</h2>
-        <p>{{ $address->user?->name }}</p>
+        <p>{{ $address->owner?->name }}</p>
       @endforeach
     </div>
   </div>
