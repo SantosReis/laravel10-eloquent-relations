@@ -35,11 +35,29 @@ Route::get('/user', function () {
     //     'country' => 'UK'
     // ]);
 
+    //option of searchs
     // $users = \App\Models\User::all();
-    $users = \App\Models\User::with('addresses')->get();
+    $users = \App\Models\User::with(['addresses', 'posts'])->get();
+    // $users = \App\Models\User::has('posts', '>=', 2)->with('posts')->get();
+    // $users = \App\Models\User::doesntHave('posts')->with('posts')->get();
+    //search like
+    // $users = \App\Models\User::whereHas('posts', function($query){
+    //     $query->where('title', 'like', '%10%');
+    // })->with('posts')->get();
+
+    
+    // $users = \App\Models\User::get();
 
     // $users[0]->addresses()->create([
     //     'country' => 'Nepal'
+    // ]);
+
+    // $users[0]->posts()->create([
+    //     'title' => 'Post 10'
+    // ]);
+
+    // $users[2]->posts()->create([
+    //     'title' => 'Post 11'
     // ]);
 
     // dd(compact('users'));
