@@ -101,6 +101,9 @@ Route::get('/posts', function () {
     // $addresses = \App\Models\Post::all();
     $posts = \App\Models\Post::with('user')->get();
 
+    //retrive pivot
+    // $posts = \App\Models\Post::first();
+    // dd($posts->tags->first()->pivot->status);
     // dd(compact('posts'));
 
     return view('posts.index', compact('posts'));
@@ -131,9 +134,14 @@ Route::get('/tags', function () {
     // $post->tags()->attach($tag);
     // $post->tags()->attach([2, 3, 4]);
     // $post->tags()->attach(1);
+    // $post->tags()->attach([
+    //     1 => [
+    //         'status' => 'approved'
+    //     ]
+    // ]);
     // $post->tags()->detach(1);
     // $post->tags()->sync([1, 3]);
-    $post->tags()->sync([1]);
+    // $post->tags()->sync([1]);
 
 
     // dd($post->toArray());
