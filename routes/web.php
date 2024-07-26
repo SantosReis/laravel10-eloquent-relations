@@ -22,7 +22,7 @@ Route::get('/user', function () {
 
     // \App\Models\Address::create([
     //     'user_id' => 1,
-    //     'country' => 'India'
+    //     'country' => 'Nepal'
     // ]);
 
     // \App\Models\Address::create([
@@ -35,7 +35,8 @@ Route::get('/user', function () {
     //     'country' => 'UK'
     // ]);
 
-    $users = \App\Models\User::all();
+    // $users = \App\Models\User::all();
+    $users = \App\Models\User::with('addresses')->get();
 
     // dd(compact('users'));
 
@@ -51,7 +52,7 @@ Route::get('/address', function () {
     //     'country' => 'UK'
     // ]);
 
-    $addresses = \App\Models\Address::all();
+    // $addresses = \App\Models\Address::all();
     $addresses = \App\Models\Address::with('user')->get();
 
     // dd(compact('users'));
