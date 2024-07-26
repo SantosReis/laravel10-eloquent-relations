@@ -107,3 +107,37 @@ Route::get('/posts', function () {
 
 });
 
+
+Route::get('/tags', function () {
+
+    // \App\Models\Tag::create([
+    //     'name' => 'PHP',
+    // ]);
+
+    // \App\Models\Tag::create([
+    //     'name' => 'Laravel',
+    // ]);
+
+    // \App\Models\Tag::create([
+    //     'name' => 'Javascrip',
+    // ]);
+
+    $tag = \App\Models\Tag::first();
+    // $post = \App\Models\Post::first();
+    // $post = \App\Models\Post::with('tags')->first();
+    $post = \App\Models\Post::with(['user', 'tags'])->first();
+
+    //setup into related tables
+    // $post->tags()->attach($tag);
+    // $post->tags()->attach([2, 3, 4]);
+    // $post->tags()->detach(2);
+    $post->tags()->sync([1, 3]);
+
+
+    // dd($post->toArray());
+
+    $tags = \App\Models\Tag::all();
+    return view('tags.index', compact('tags'));
+
+});
+

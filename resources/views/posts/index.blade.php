@@ -4,6 +4,11 @@
       @foreach ($posts as $post)
         <h2>{{ $post->title }}</h2>
         <p>{{ $post->user?->name }}</p>
+        <ul>
+          @foreach ($post->tags as $tag)
+            <li>{{ $tag->name }}</li>
+          @endforeach
+        </ul>
       @endforeach
     </div>
   </div>
