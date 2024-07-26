@@ -22,7 +22,8 @@ class Post extends Model
     {
         // return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
         return $this->belongsToMany(Tag::class)
+            ->using(PostTag::class) //ref to pivot table
             ->withTimestamps()
-            ->withPivot('status');
+            ->withPivot('status'); //setup pivot fields
     }
 }
