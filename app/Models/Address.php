@@ -11,10 +11,10 @@ class Address extends Model
 
     protected $fillable = ['user_id', 'country'];
 
-    public function owner()
+    public function user()
     {
         // return $this->belongsTo(User::class, 'uid', 'id');
-        // return $this->belongsTo(User::class);
-        return $this->belongsTo(User::class, 'user_id');
+        // return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 }

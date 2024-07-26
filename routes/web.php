@@ -48,10 +48,11 @@ Route::get('/address', function () {
     // $user = \App\Models\User::factory()->create();
 
     // $user->address()->create([
-    //     'country' => 'India'
+    //     'country' => 'UK'
     // ]);
 
     $addresses = \App\Models\Address::all();
+    $addresses = \App\Models\Address::with('user')->get();
 
     // dd(compact('users'));
 
