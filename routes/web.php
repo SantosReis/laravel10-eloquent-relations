@@ -139,7 +139,7 @@ Route::get('/tags', function () {
     //         'status' => 'approved'
     //     ]
     // ]);
-    // $post->tags()->detach(1);
+    $post->tags()->detach(1);
     // $post->tags()->sync([1, 3]);
     // $post->tags()->sync([1]);
 
