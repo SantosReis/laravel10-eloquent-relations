@@ -42,3 +42,19 @@ Route::get('/user', function () {
     return view('users.index', compact('users'));
 
 });
+
+Route::get('/address', function () {
+
+    // $user = \App\Models\User::factory()->create();
+
+    // $user->address()->create([
+    //     'country' => 'India'
+    // ]);
+
+    $addresses = \App\Models\Address::all();
+
+    // dd(compact('users'));
+
+    return view('address.index', compact('addresses'));
+
+});
