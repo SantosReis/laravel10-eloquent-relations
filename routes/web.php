@@ -131,12 +131,12 @@ Route::get('/tags', function () {
     // $post->tags()->attach($tag);
     // $post->tags()->attach([2, 3, 4]);
     // $post->tags()->detach(2);
-    $post->tags()->sync([1, 3]);
+    // $post->tags()->sync([1, 3]);
 
 
     // dd($post->toArray());
 
-    $tags = \App\Models\Tag::all();
+    $tags = \App\Models\Tag::with('posts')->get();
     return view('tags.index', compact('tags'));
 
 });
