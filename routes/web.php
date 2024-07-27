@@ -200,7 +200,7 @@ Route::get('/projects', function () {
 
 });
 
-Route::get('/team', function () {
+Route::get('/teams', function () {
 
     // \App\Models\Task::create([
     //     'title' => 'Task A',
@@ -227,4 +227,26 @@ Route::get('/team', function () {
 
     return $project->tasks;
     
+});
+
+
+Route::get('/videos', function () {
+    $user = \App\Models\User::create([
+        'name' => 'Harish',
+        'email' => 'harish@example.com',
+        'password' => Hash::make('password')
+    ]);
+
+    $post = \App\Models\Post::create([
+        'user_id' => $user->id,
+        'title' => 'example post title'
+    ]);
+
+    $post->comments()->create([
+        'user_id' => $user->id,
+        'body' => 'comment for post'
+    ]);
+
+    die('..');
+
 });

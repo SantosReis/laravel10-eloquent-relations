@@ -26,4 +26,9 @@ class Post extends Model
             ->withTimestamps()
             ->withPivot('status'); //setup pivot fields
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }
