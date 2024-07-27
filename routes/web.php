@@ -154,6 +154,46 @@ Route::get('/tags', function () {
 
 });
 
+Route::get('/tagsMorph', function () {
+
+    // $post = \App\Models\Post::create([
+    //     'user_id' => 1,
+    //     'title' => 'Post title 1',
+    // ]);
+    // $post->tags()->create([
+    //     'name' => 'Laravel'
+    // ]);
+
+    // $post = \App\Models\Post::find(1);
+    // $tag = \App\Models\Tag::create([
+    //     'name' => 'PHP'
+    // ]);
+    // $post->tags()->attach($tag);
+    // dd($post->tags);
+
+
+    // $video = \App\Models\Video::create([
+    //     'title' => 'Video title 1'
+    // ]);
+    // $tag = \App\Models\Tag::find(1);
+    // $video->tags()->attach($tag);
+    // $video = \App\Models\Video::find(1);
+    // dd($video->tags);
+    // dd($post->tags);
+
+
+    $tag = \App\Models\Tag::find(1);
+    // dd($tag->posts);
+
+    // $tag->videos()->create([
+    //     'title' => 'video title 2'
+    // ]);
+    dd($tag->videos);
+
+
+
+
+});
 
 Route::get('/projects', function () {
 

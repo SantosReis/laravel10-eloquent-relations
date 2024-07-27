@@ -18,13 +18,20 @@ class Post extends Model
         ]);
     }
 
+    //Pivot version
+    // public function tags()
+    // {
+    //     // return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
+    //     return $this->belongsToMany(Tag::class)
+    //         ->using(PostTag::class) //ref to pivot table
+    //         ->withTimestamps()
+    //         ->withPivot('status'); //setup pivot fields
+    // }
+
+    //Polymorphic version
     public function tags()
     {
-        // return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
-        return $this->belongsToMany(Tag::class)
-            ->using(PostTag::class) //ref to pivot table
-            ->withTimestamps()
-            ->withPivot('status'); //setup pivot fields
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     public function comments()
@@ -37,4 +44,6 @@ class Post extends Model
         return $this->morphOne(Comment::class, 'commentable');
         // return $this->morphOne(Comment::class, 'commentable')->latest();
     }
+
+
 }
