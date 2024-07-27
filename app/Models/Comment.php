@@ -12,6 +12,12 @@ class Comment extends Model
     protected $guarded = [];
     public function commentable()
     {
-        return $this->morthTo();
+        return $this->morphTo();
+    }
+
+    //commendable alternative as alias
+    public function subject()
+    {
+        return $this->morphTo('commendable');
     }
 }

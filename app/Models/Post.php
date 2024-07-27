@@ -31,4 +31,10 @@ class Post extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function comment()
+    {
+        return $this->morphOne(Comment::class, 'commentable');
+        // return $this->morphOne(Comment::class, 'commentable')->latest();
+    }
 }

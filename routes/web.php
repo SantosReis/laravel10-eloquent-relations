@@ -231,22 +231,52 @@ Route::get('/teams', function () {
 
 
 Route::get('/videos', function () {
-    $user = \App\Models\User::create([
-        'name' => 'Harish',
-        'email' => 'harish@example.com',
-        'password' => Hash::make('password')
-    ]);
 
-    $post = \App\Models\Post::create([
-        'user_id' => $user->id,
-        'title' => 'example post title'
-    ]);
+    // $user = \App\Models\User::create([
+    //     'name' => 'Harish',
+    //     'email' => 'harish@example.com',
+    //     'password' => Hash::make('password')
+    // ]);
 
-    $post->comments()->create([
-        'user_id' => $user->id,
-        'body' => 'comment for post'
-    ]);
+    // $post = \App\Models\Post::create([
+    //     'user_id' => $user->id,
+    //     'title' => 'example post title'
+    // ]);
 
-    die('..');
+    // $post->comments()->create([
+    //     'user_id' => $user->id,
+    //     'body' => 'comment for post'
+    // ]);
+
+
+    $post = \App\Models\Post::find(1);
+    // $post->comments()->create([
+    //     'user_id' => 1,
+    //     'body' => '2nd comments for post'
+    // ]);
+    dd($post->comment->toArray());
+    // dd($post->comments->toArray());
+
+
+    // $video = \App\Models\Video::create([
+    //     'title' => 'example video title'
+    // ]);
+    // $video->comments()->create([
+    //     'user_id' => 1,
+    //     'body' => 'comment for video'
+    // ]);
+
+    // $video = \App\Models\Video::find(2);
+    // dd($video)->toArray();
+    // dd($video->comments)->toArray();
+
+    // $comment = \App\Models\Comment::find(2);
+    // dd($comment);
+    // dd($comment->commentable);
+    // dd($comment->subject());
+
+
+    // $comments = \App\Models\Comment::all();
+    // dd($comments);
 
 });
