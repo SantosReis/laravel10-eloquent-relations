@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
+ */
+class TagFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->word(),
+            // 'user_id' => function () {
+            //     // return rand(0, 5);
+            //     return \App\Models\User::all()->random()->id;
+            //     // return \App\Models\User::factory()->create()->id;
+            // },
+        ];
+    }
+}

@@ -24,6 +24,9 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            // 'project_id' => function () {
+            //     return \App\Models\Project::all()->random()->id;
+            // },
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
