@@ -24,14 +24,27 @@ class DatabaseSeeder extends Seeder
         \App\Models\Task::factory(5)->create();
         \App\Models\Address::factory(5)->create();
 
-        \App\Models\Post::factory(5)->create();
+        $posts = \App\Models\Post::factory(5)->create();
         \App\Models\Tag::factory(5)->create();
         \App\Models\PostTag::factory(5)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $videos = \App\Models\Video::factory(5)->create();
+        \App\Models\Comment::factory(5)->create();
+
+        //seed taggables into posts
+        foreach ($posts as $post) {
+            $post->tags()->attach(\App\Models\Tag::all()->random());
+        }
+
+        //seed taggables into videos
+        foreach ($videos as $video) {
+            $video->tags()->attach(\App\Models\Tag::all()->random());
+        }
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
     }
 }

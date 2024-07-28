@@ -93,14 +93,6 @@ Route::get('/tags', function () {
 
 Route::get('/tagsMorph', function () {
 
-    // $post = \App\Models\Post::create([
-    //     'user_id' => 1,
-    //     'title' => 'Post title 1',
-    // ]);
-    // $post->tags()->create([
-    //     'name' => 'Laravel'
-    // ]);
-
     // $post = \App\Models\Post::find(1);
     // $tag = \App\Models\Tag::create([
     //     'name' => 'PHP'
@@ -134,14 +126,6 @@ Route::get('/tagsMorph', function () {
 
 Route::get('/projects', function () {
 
-    // $project1->users()->attach($user1);
-    // $project1->users()->attach($user2);
-    // $project1->users()->attach($user3);
-
-    // $project2->users()->attach($user1);
-    // $project2->users()->attach($user3);
-
-
     $project = \App\Models\Project::find(1);
     // return $project->users[0]->tasks;
     // return $project->users;
@@ -155,26 +139,6 @@ Route::get('/projects', function () {
 
 Route::get('/teams', function () {
 
-    // \App\Models\Task::create([
-    //     'title' => 'Task A',
-    //     'user_id' => 1
-    // ]);
-
-    // \App\Models\Task::create([
-    //     'title' => 'Task B',
-    //     'user_id' => 1
-    // ]);
-
-    // \App\Models\Task::create([
-    //     'title' => 'Task C',
-    //     'user_id' => 2
-    // ]);
-
-    // \App\Models\Task::create([
-    //     'title' => 'Task D',
-    //     'user_id' => 3
-    // ]);
-
     // $project = Project::find(1);
     $project = Project::find(2);
 
@@ -185,48 +149,32 @@ Route::get('/teams', function () {
 
 Route::get('/videos', function () {
 
-    // $user = \App\Models\User::create([
-    //     'name' => 'Harish',
-    //     'email' => 'harish@example.com',
-    //     'password' => Hash::make('password')
-    // ]);
-
-    // $post = \App\Models\Post::create([
-    //     'user_id' => $user->id,
-    //     'title' => 'example post title'
-    // ]);
-
-    // $post->comments()->create([
-    //     'user_id' => $user->id,
-    //     'body' => 'comment for post'
-    // ]);
-
-
-    $post = \App\Models\Post::find(1);
-    // $post->comments()->create([
-    //     'user_id' => 1,
-    //     'body' => '2nd comments for post'
-    // ]);
-    dd($post->comment->toArray());
-    // dd($post->comments->toArray());
-
-
-    // $video = \App\Models\Video::create([
-    //     'title' => 'example video title'
-    // ]);
-    // $video->comments()->create([
-    //     'user_id' => 1,
-    //     'body' => 'comment for video'
-    // ]);
+    $videos = \App\Models\Video::all();
+    dd($videos);
 
     // $video = \App\Models\Video::find(2);
     // dd($video)->toArray();
     // dd($video->comments)->toArray();
 
-    // $comment = \App\Models\Comment::find(2);
+});
+
+
+Route::get('/comments', function () {
+
+    //Post comments
+    // $post = \App\Models\Post::find(2);
+    // dd($post->comment->toArray());
+    // dd($post->toArray());
+
+    //Video comments
+    // $video = \App\Models\Video::find(2);
+    // dd($video)->toArray();
+    // dd($video->comments)->toArray();
+
+    $comment = \App\Models\Comment::find(2);
     // dd($comment);
     // dd($comment->commentable);
-    // dd($comment->subject());
+    dd($comment->subject());
 
 
     // $comments = \App\Models\Comment::all();
